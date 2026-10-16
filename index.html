@@ -1,11 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
+    <!-- Metaetiquetas básicas y de SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio</title>
+    <meta name="description"
+        content="Portafolio web profesional de Brahyan, analista de automatizaciones de Medellín, Colombia.">
+    <meta name="author" content="Brahyan">
+    <meta name="keywords"
+        content="portafolio, analista de automatizaciones, automatización, Medellín, HTML5, CSS3, JavaScript">
+
+    <!-- Open Graph (vista previa al compartir) -->
+    <meta property="og:title" content="Brahyan | Analista de Automatizaciones">
+    <meta property="og:description" content="Portafolio de un analista de automatizaciones de Medellín, Colombia">
+    <meta property="og:type" content="website">
+
+    <title>Brahyan | Analista de Automatizaciones</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Hojas de estilo modulares (orden: reset -> variables -> layout -> componentes) -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
+
 <body>
-    
+    <!-- Enlace de salto para accesibilidad por teclado -->
+    <a href="#principal" class="skip-link">Saltar al contenido</a>
+
+    <!-- ============ HEADER: logo + navegación ============ -->
+    <header class="cabecera">
+        <nav class="nav contenedor" aria-label="Navegación principal">
+            <a href="#inicio" class="nav__logo">Brahyan<span class="nav__logo-punto">.</span></a>
+
+            <!-- Menú de navegación (responsive) -->
+            <ul class="nav__menu" id="nav-menu" role="list">
+                <li><a href="#inicio" class="nav__enlace">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav__enlace">Sobre mí</a></li>
+                <li><a href="#proyectos" class="nav__enlace">Proyectos</a></li>
+                <li><a href="#contacto" class="nav__enlace">Contacto</a></li>
+            </ul>
+
+            <div class="nav__acciones">
+                <!-- Llamado a la acción tipo "HIRE ME" de la referencia -->
+                <a href="#contacto" class="nav__hireme">
+                    <span class="nav__hireme-icono" aria-hidden="true">💬</span>
+                    Contrátame
+                </a>
+                <!-- Botón de cambio de tema claro/oscuro -->
+                <button class="btn-tema" id="btn-tema" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema">
+                    🌙
+                </button>
+                <!-- Botón hamburguesa (visible solo en móvil) -->
+                <button class="nav__alternar" id="nav-alternar" aria-label="Abrir menú" aria-expanded="false"
+                    aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============ MAIN: contenido principal único ============ -->
+    <main id="principal">
+
+        <!-- ===== Sección: Presentación personal (Hero) ===== -->
+        <section id="inicio" class="hero-seccion" aria-labelledby="hero-nombre">
+            <!-- Copyright vertical en el lateral (como la referencia) -->
+            <p class="hero__copy-vertical">© MMXXVI · Hecho en Medellín</p>
+
+            <div class="hero contenedor">
+                <!-- Columna de texto -->
+                <div class="hero__texto">
+                    <h1 class="hero__nombre" id="hero-nombre">
+                        Hola, mi<br>nombre es <strong>Brahyan</strong><span class="hero__punto">.</span>
+                    </h1>
+                    <p class="hero__descripcion">
+                        Soy un <strong>analista de automatizaciones</strong> de
+                        <strong>Medellín, Colombia</strong>.
+                    </p>
+                    <div class="hero__acciones">
+                        <a href="#proyectos" class="btn btn--primario">Ver proyectos</a>
+                        <a href="#contacto" class="btn btn--secundario">Contrátame</a>
+                    </div>
+
+                    <!-- Indicador de scroll -->
+                    <a href="#sobre-mi" class="hero__scroll">
+                        <span>SCROLL</span>
+                        <span class="hero__scroll-linea" aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <!-- Columna de foto -->
+                <div class="hero__ilustracion">
+                    <img src="assets/images/Brahyan.png" alt="Foto de Brahyan, analista de automatizaciones"
+                        class="hero__foto">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Sección: Sobre mí + habilidades ===== -->
+        <section id="sobre-mi" class="seccion contenedor" aria-labelledby="titulo-sobre-mi">
+            <h2 class="seccion__titulo reveal" id="titulo-sobre-mi">Sobre mí</h2>
+            <p class="hero__descripcion reveal" style="margin-inline:auto; text-align:center;">
+                Analista de automatizaciones apasionado por optimizar procesos y eliminar
+                tareas repetitivas. He trabajado en automatizaciones con
+                <strong>Python</strong>, <strong>UiPath</strong>, <strong>Apps Script</strong>,
+                <strong>Power Platform</strong> y <strong>n8n</strong>.
+            </p>
+
+            <!-- Grid de habilidades -->
+            <div class="skills-grid" style="margin-top: var(--espaciado-md);">
+                <article class="skill-card reveal">
+                    <img src="assets/images/python.png" alt="Logo de Python" class="skill-card__logo">
+                    <h3>Python</h3>
+                    <p>Scripts y automatización</p>
+                </article>
+                <article class="skill-card reveal">
+                    <img src="assets/images/Uipath.png" alt="Logo de UiPath" class="skill-card__logo">
+                    <h3>UiPath</h3>
+                    <p>RPA empresarial</p>
+                </article>
+                <article class="skill-card reveal">
+                    <img src="assets/images/apps-script.png" alt="Logo de Google Apps Script" class="skill-card__logo">
+                    <h3>Apps Script</h3>
+                    <p>Automatización en Google</p>
+                </article>
+                <article class="skill-card reveal">
+                    <img src="assets/images/power-platform.png" alt="Logo de Microsoft Power Platform"
+                        class="skill-card__logo">
+                    <h3>Power Platform</h3>
+                    <p>Power Automate y apps</p>
+                </article>
+                <article class="skill-card reveal">
+                    <img src="assets/images/n8n.png" alt="Logo de n8n" class="skill-card__logo">
+                    <h3>n8n</h3>
+                    <p>Flujos e integraciones</p>
+                </article>
+                <article class="skill-card reveal">
+                    <img src="assets/images/github.png" alt="Logo de GitHub" class="skill-card__logo">
+                    <h3>Git / GitHub</h3>
+                    <p>Control de versiones</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== Sección: Proyectos (se cargan dinámicamente con JS) ===== -->
+        <section id="proyectos" class="seccion contenedor" aria-labelledby="titulo-proyectos">
+            <h2 class="seccion__titulo reveal" id="titulo-proyectos">Proyectos</h2>
+            <!-- El contenido de este contenedor lo genera main.js -->
+            <div class="proyectos-grid" id="proyectos-grid"></div>
+        </section>
+
+        <!-- ===== Sección: Contacto (formulario validado) ===== -->
+        <section id="contacto" class="seccion contenedor" aria-labelledby="titulo-contacto">
+            <h2 class="seccion__titulo reveal" id="titulo-contacto">Contacto</h2>
+
+            <div class="contacto-layout">
+                <!-- Columna 1: datos de contacto -->
+                <aside class="contacto-info reveal" aria-label="Información de contacto">
+                    <p>¿Tienes un proyecto o una oferta? Escríbeme y te respondo pronto.</p>
+                    <div class="contacto-info__item">
+                        <span aria-hidden="true">📧</span>
+                        <a href="mailto:brahyan.padierna24@gmail.com">brahyan.padierna24@gmail.com</a>
+                    </div>
+                    <div class="contacto-info__item">
+                        <span aria-hidden="true">📍</span>
+                        <span>Medellín, Colombia</span>
+                    </div>
+                    <div class="contacto-info__item">
+                        <span aria-hidden="true">💼</span>
+                        <a href="https://www.linkedin.com/in/brahyan-padierna-palacio-760498211/" target="_blank"
+                            rel="noopener noreferrer">LinkedIn: Brahyan Padierna</a>
+                    </div>
+                </aside>
+
+                <!-- Columna 2: formulario con validaciones HTML5 -->
+                <form class="form reveal" id="form-contacto" novalidate>
+                    <div class="form__grupo">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required minlength="3"
+                            autocomplete="name">
+                        <small class="form__error" id="error-nombre" aria-live="polite"></small>
+                    </div>
+
+                    <div class="form__grupo">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required
+                            autocomplete="email">
+                        <small class="form__error" id="error-email" aria-live="polite"></small>
+                    </div>
+
+                    <div class="form__grupo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntame en qué puedo ayudarte"
+                            required minlength="10"></textarea>
+                        <small class="form__error" id="error-mensaje" aria-live="polite"></small>
+                    </div>
+
+                    <button type="submit" class="btn btn--primario">Enviar mensaje</button>
+                    <p class="form__mensaje" id="form-mensaje" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER: pie de página ============ -->
+    <footer class="pie">
+        <div class="pie__contenido contenedor">
+            <p>&copy; <span id="anio"></span> Brahyan · Medellín, Colombia.</p>
+            <p>Hecho con HTML5, CSS3 y JavaScript · Licencia MIT</p>
+        </div>
+    </footer>
+
+    <!-- Scripts modulares al final del body (defer para no bloquear el render) -->
+    <script src="js/main.js" defer></script>
+    <script src="js/form-handler.js" defer></script>
+    <script src="js/animations.js" defer></script>
 </body>
+
 </html>
