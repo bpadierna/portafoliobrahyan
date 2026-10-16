@@ -1,0 +1,82 @@
+/* ============================================================
+   reset.css
+   Normaliza los estilos por defecto de los navegadores para
+   partir de una base consistente (box-sizing, márgenes, etc.)
+   ============================================================ */
+
+/* Modelo de caja predecible en todos los elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Elimina márgenes y rellenos por defecto */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Mejora el renderizado de texto */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Imágenes y multimedia responsivas por defecto */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Hereda la fuente en los controles de formulario */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Evita desbordes de palabras largas */
+p,
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+}
+
+/* Listas sin estilo cuando se usan para navegación */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Enlaces sin subrayado por defecto */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Respeta la preferencia de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

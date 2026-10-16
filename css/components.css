@@ -1,0 +1,471 @@
+/* ============================================================
+   components.css
+   Componentes UI reutilizables: botones, tarjetas, inputs,
+   badges, menú hamburguesa y animaciones/transiciones.
+   ============================================================ */
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaciado-xs);
+  padding: 0.65rem 1.4rem;
+  border: 2px solid transparent;
+  border-radius: var(--radio-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transicion), background-color var(--transicion),
+    box-shadow var(--transicion);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primario {
+  background-color: var(--color-primario);
+  color: #fff;
+}
+
+.btn--secundario {
+  background-color: transparent;
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+/* ---------- Enlaces de navegación ---------- */
+.nav__enlace {
+  position: relative;
+  font-weight: 500;
+  padding: var(--espaciado-xs) 0;
+  transition: color var(--transicion);
+}
+
+.nav__enlace:hover {
+  color: var(--color-primario);
+}
+
+/* Subrayado animado */
+.nav__enlace::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primario);
+  transition: width var(--transicion);
+}
+
+.nav__enlace:hover::after {
+  width: 100%;
+}
+
+/* ---------- Botón hamburguesa ---------- */
+.nav__alternar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav__alternar span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--color-texto);
+  border-radius: 2px;
+  transition: transform var(--transicion), opacity var(--transicion);
+}
+
+/* Animación a "X" cuando el menú está abierto */
+.nav__alternar.activo span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav__alternar.activo span:nth-child(2) {
+  opacity: 0;
+}
+.nav__alternar.activo span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* En tablet y escritorio no se muestra la hamburguesa.
+   Se define aquí (y no solo en layout.css) porque components.css
+   se carga después y debe ganar en la cascada. */
+@media (min-width: 768px) {
+  .nav__alternar {
+    display: none;
+  }
+}
+
+/* ---------- Botón de tema claro/oscuro ---------- */
+.btn-tema {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-fondo);
+  cursor: pointer;
+  font-size: var(--fs-lg);
+  transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.btn-tema:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- Hero estilo "Hi, my name is..." ---------- */
+.hero__nombre {
+  font-family: var(--fuente-serif);
+  font-weight: 400;
+  font-size: var(--fs-hero);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.hero__nombre strong {
+  font-weight: 700;
+  color: var(--color-primario);
+}
+
+/* Punto final de acento (como "Robb.") */
+.hero__punto {
+  color: var(--color-acento);
+}
+
+.hero__descripcion {
+  max-width: 42ch;
+  font-size: var(--fs-lg);
+  color: var(--color-texto-suave);
+}
+
+.hero__descripcion strong {
+  color: var(--color-texto);
+  font-weight: 700;
+}
+
+.hero__acciones {
+  display: flex;
+  gap: var(--espaciado-sm);
+  flex-wrap: wrap;
+}
+
+/* Indicador de SCROLL con línea vertical */
+.hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaciado-sm);
+  margin-top: var(--espaciado-md);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.3em;
+  color: var(--color-texto-suave);
+}
+
+.hero__scroll-linea {
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-texto-suave);
+  transition: width var(--transicion);
+}
+
+.hero__scroll:hover .hero__scroll-linea {
+  width: 90px;
+  background-color: var(--color-primario);
+}
+
+/* Copyright vertical en el lateral */
+.hero__copy-vertical {
+  display: none; /* Visible solo en desktop */
+  position: absolute;
+  left: var(--espaciado-sm);
+  top: 50%;
+  transform: rotate(180deg) translateX(50%);
+  writing-mode: vertical-rl;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  color: var(--color-texto-suave);
+}
+
+/* Foto del hero (sin fondo decorativo) */
+.hero__ilustracion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__foto {
+  width: clamp(240px, 70vw, 380px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: var(--sombra-lg);
+}
+
+/* Enlace "Contrátame" del header (estilo HIRE ME) */
+.nav__hireme {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaciado-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  color: var(--color-primario);
+  transition: transform var(--transicion);
+}
+
+.nav__hireme:hover {
+  transform: translateY(-2px);
+}
+
+.nav__logo-punto {
+  color: var(--color-acento);
+}
+
+/* ---------- Tarjeta de proyecto ---------- */
+.proyecto-card {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--sombra);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.proyecto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-lg);
+}
+
+/* Encabezado con ícono (reemplaza la captura por confidencialidad) */
+.proyecto-card__icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+}
+
+.proyecto-card__cuerpo {
+  padding: var(--espaciado-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-xs);
+  flex: 1;
+}
+
+.proyecto-card h3 {
+  font-size: var(--fs-lg);
+}
+
+.proyecto-card p {
+  color: var(--color-texto-suave);
+  font-size: var(--fs-sm);
+  flex: 1;
+}
+
+/* Nota de confidencialidad al pie de cada tarjeta */
+.proyecto-card__nota {
+  font-size: var(--fs-xs);
+  color: var(--color-texto-suave);
+  font-style: italic;
+}
+
+/* ---------- Badges de tecnologías ---------- */
+.tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaciado-xs);
+}
+
+.tecnologias span {
+  background-color: var(--color-primario);
+  color: #fff;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+/* ---------- Tarjeta de habilidad ---------- */
+.skill-card {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  padding: var(--espaciado-sm);
+  text-align: center;
+  transition: transform var(--transicion), border-color var(--transicion);
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primario);
+}
+
+.skill-card__icono {
+  font-size: var(--fs-2xl);
+}
+
+/* Logo de tecnología dentro de la tarjeta de habilidad */
+.skill-card__logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin: 0 auto var(--espaciado-xs);
+}
+
+/* ---------- Formulario e inputs ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-sm);
+  background-color: var(--color-superficie);
+  padding: var(--espaciado-md);
+  border-radius: var(--radio);
+  border: 1px solid var(--color-borde);
+  box-shadow: var(--sombra);
+}
+
+.form__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form__grupo label {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+
+.form__grupo input,
+.form__grupo textarea {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  background-color: var(--color-fondo);
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.form__grupo input:focus,
+.form__grupo textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Estado de campo inválido (lo marca el JS) */
+.form__grupo input.invalido,
+.form__grupo textarea.invalido {
+  border-color: var(--color-error);
+}
+
+.form__error {
+  color: var(--color-error);
+  font-size: var(--fs-xs);
+  min-height: 1rem;
+}
+
+/* Mensaje general de envío */
+.form__mensaje {
+  text-align: center;
+  font-weight: 600;
+  min-height: 1.2rem;
+}
+
+.form__mensaje--exito {
+  color: var(--color-exito);
+}
+
+.form__mensaje--error {
+  color: var(--color-error);
+}
+
+/* ---------- Info de contacto ---------- */
+.contacto-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-sm);
+}
+
+.contacto-info__item {
+  display: flex;
+  align-items: center;
+  gap: var(--espaciado-xs);
+  color: var(--color-texto-suave);
+}
+
+.contacto-info__item a {
+  color: var(--color-primario);
+  word-break: break-word;
+  transition: color var(--transicion);
+}
+
+.contacto-info__item a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   ANIMACIONES Y TRANSICIONES SUTILES
+   ============================================================ */
+
+/* Aparición al hacer scroll (controlada por animations.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Entrada del hero al cargar */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero > * {
+  animation: aparecer 0.7s ease backwards;
+}
+
+.hero > *:nth-child(2) { animation-delay: 0.1s; }
+.hero > *:nth-child(3) { animation-delay: 0.2s; }
+.hero > *:nth-child(4) { animation-delay: 0.3s; }
+.hero > *:nth-child(5) { animation-delay: 0.4s; }
+
+/* Enlace para saltar al contenido (accesibilidad) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-primario);
+  color: #fff;
+  padding: var(--espaciado-xs) var(--espaciado-sm);
+  z-index: 200;
+}
+
+.skip-link:focus {
+  left: 0;
+}

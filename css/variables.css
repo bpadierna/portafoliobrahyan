@@ -1,0 +1,68 @@
+/* ============================================================
+   variables.css
+   Custom Properties (Variables CSS) = Guía de estilos (Fase 2.2)
+   Centraliza colores, tipografías y espaciados para
+   mantenibilidad. Incluye tema claro y oscuro.
+   ============================================================ */
+
+:root {
+  /* ---------- Paleta de colores (mínimo 3 principales) ---------- */
+  --color-primario: #2563eb;      /* Azul: acciones y enlaces */
+  --color-secundario: #10b981;    /* Verde: acentos y éxito */
+  --color-acento: #f59e0b;        /* Ámbar: destacados */
+
+  /* ---------- Colores de superficie (tema claro) ---------- */
+  --color-fondo: #f8fafc;
+  --color-superficie: #ffffff;
+  --color-texto: #1e293b;
+  --color-texto-suave: #64748b;
+  --color-borde: #e2e8f0;
+  --color-error: #ef4444;
+  --color-exito: #16a34a;
+
+  /* ---------- Tipografías (máximo 2 familias) ---------- */
+  --fuente-titulos: 'Poppins', 'Segoe UI', sans-serif;
+  --fuente-cuerpo: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  /* Serif para el título del hero, estilo "Hi, my name is..." */
+  --fuente-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+  /* ---------- Tamaños de fuente (escala) ---------- */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.75rem;
+  --fs-hero: clamp(2.75rem, 8vw, 5rem); /* Título gigante del hero */
+
+  /* ---------- Espaciado (sistema de 8px) ---------- */
+  --espaciado-xs: 0.5rem;
+  --espaciado-sm: 1rem;
+  --espaciado-md: 1.5rem;
+  --espaciado-lg: 2.5rem;
+  --espaciado-xl: 4rem;
+
+  /* ---------- Bordes y sombras ---------- */
+  --radio: 0.75rem;
+  --radio-sm: 0.5rem;
+  --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --sombra-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* ---------- Transiciones ---------- */
+  --transicion: 0.25s ease;
+
+  /* ---------- Ancho máximo de contenido ---------- */
+  --ancho-max: 1100px;
+}
+
+/* ---------- Tema oscuro (se activa con data-tema="oscuro") ---------- */
+[data-tema="oscuro"] {
+  --color-fondo: #0f172a;
+  --color-superficie: #1e293b;
+  --color-texto: #f1f5f9;
+  --color-texto-suave: #94a3b8;
+  --color-borde: #334155;
+  --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --sombra-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
