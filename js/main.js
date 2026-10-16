@@ -20,7 +20,7 @@ const REPO_FRAMEWORK = 'https://github.com/tu-usuario/automation-framework';
 const proyectos = [
   {
     titulo: 'Ocupación de la gerencia DHO',
-    imagen: 'assets/images/ocupacion.png',
+    imagen: 'assets/images/ocupacion_img.jpg',
     descripcion:
       'Bot que lee los eventos del calendario de los usuarios y registra cada evento en un archivo JSON que alimenta un tablero de Power BI para analizar la ocupación.',
     tecnologias: ['Python', 'Calendar API', 'JSON', 'Power BI'],
@@ -28,7 +28,7 @@ const proyectos = [
   },
   {
     titulo: 'Registro de acciones',
-    imagen: 'assets/images/acciones.png',
+    imagen: 'assets/images/acciones_img.jpg',
     descripcion:
       'Automatización que revisa el correo diariamente, descarga los PDF adjuntos y extrae la información relevante para consolidarla en un reporte estructurado.',
     tecnologias: ['Python', 'PDF', 'Pandas'],
@@ -36,7 +36,7 @@ const proyectos = [
   },
   {
     titulo: 'Obtener valor de producto',
-    imagen: 'assets/images/Web-scraping.png',
+    imagen: 'assets/images/Web-scraping_img.jpg',
     descripcion:
       'Web scraping en distintos sitios de venta para comparar el precio del mismo producto y detectar la mejor oferta de forma automática.',
     tecnologias: ['Python', 'Web Scraping', 'Requests'],
@@ -77,7 +77,7 @@ function renderizarProyectos() {
         <h3>${escaparHTML(proyecto.titulo)}</h3>
         <p>${escaparHTML(proyecto.descripcion)}</p>
         <div class="tecnologias">${tecnologiasHTML}</div>
-        <span class="proyecto-card__nota">🔒 Proyecto confidencial · caso simulado</span>
+        <span class="proyecto-card__nota">Proyecto confidencial · caso simulado</span>
         <a href="${escaparHTML(proyecto.enlace)}" class="btn btn--secundario"
            target="_blank" rel="noopener noreferrer">Ver framework en GitHub</a>
       </div>`;
@@ -121,7 +121,6 @@ function iniciarTema() {
   const temaGuardado = localStorage.getItem('tema');
   if (temaGuardado === 'oscuro') {
     document.documentElement.setAttribute('data-tema', 'oscuro');
-    btn.textContent = '☀️';
   }
 
   btn.addEventListener('click', () => {
@@ -129,11 +128,9 @@ function iniciarTema() {
     if (esOscuro) {
       document.documentElement.removeAttribute('data-tema');
       localStorage.setItem('tema', 'claro');
-      btn.textContent = '🌙';
     } else {
       document.documentElement.setAttribute('data-tema', 'oscuro');
       localStorage.setItem('tema', 'oscuro');
-      btn.textContent = '☀️';
     }
   });
 }
