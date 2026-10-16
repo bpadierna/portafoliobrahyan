@@ -62,8 +62,9 @@ No requiere dependencias ni compilación. Opciones:
 
 ## 🖼️ Capturas de pantalla
 
-> - `docs/captura-escritorio.png`
-> - `docs/captura-movil.png`
+* ![Captura de escritorio](docs/captura-escritorio.png)
+* ![Captura móvil](docs/captura-movil.png)
+* ![Captura Commits](docs/captura-commits.png)
 
 ## 👤 Autor y licencia
 
