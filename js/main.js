@@ -20,27 +20,27 @@ const REPO_FRAMEWORK = 'https://github.com/tu-usuario/automation-framework';
 const proyectos = [
   {
     titulo: 'Ocupación de la gerencia DHO',
-    icono: '🗓️',
+    imagen: 'assets/images/ocupacion.png',
     descripcion:
       'Bot que lee los eventos del calendario de los usuarios y registra cada evento en un archivo JSON que alimenta un tablero de Power BI para analizar la ocupación.',
     tecnologias: ['Python', 'Calendar API', 'JSON', 'Power BI'],
-    enlace: REPO_FRAMEWORK
+    enlace: 'https://github.com/bpadierna/Ocupaci-n-de-la-gerencia-DHO'
   },
   {
     titulo: 'Registro de acciones',
-    icono: '📋',
+    imagen: 'assets/images/acciones.png',
     descripcion:
       'Automatización que revisa el correo diariamente, descarga los PDF adjuntos y extrae la información relevante para consolidarla en un reporte estructurado.',
-    tecnologias: ['Python', 'IMAP', 'PDF', 'Pandas'],
-    enlace: REPO_FRAMEWORK
+    tecnologias: ['Python', 'PDF', 'Pandas'],
+    enlace: 'https://github.com/bpadierna/Registro-de-acciones'
   },
   {
     titulo: 'Obtener valor de producto',
-    icono: '🛒',
+    imagen: 'assets/images/Web-scraping.png',
     descripcion:
       'Web scraping en distintos sitios de venta para comparar el precio del mismo producto y detectar la mejor oferta de forma automática.',
-    tecnologias: ['Python', 'Web Scraping', 'Requests', 'BeautifulSoup'],
-    enlace: REPO_FRAMEWORK
+    tecnologias: ['Python', 'Web Scraping', 'Requests'],
+    enlace: 'https://github.com/bpadierna/Obtener-valor-de-producto'
   }
 ];
 
@@ -69,7 +69,10 @@ function renderizarProyectos() {
       .join('');
 
     card.innerHTML = `
-      <div class="proyecto-card__icono" aria-hidden="true">${escaparHTML(proyecto.icono || '🤖')}</div>
+      <div class="proyecto-card__icono">
+        <img src="${escaparHTML(proyecto.imagen)}" alt="Imagen del proyecto ${escaparHTML(proyecto.titulo)}"
+             class="proyecto-card__img" loading="lazy">
+      </div>
       <div class="proyecto-card__cuerpo">
         <h3>${escaparHTML(proyecto.titulo)}</h3>
         <p>${escaparHTML(proyecto.descripcion)}</p>

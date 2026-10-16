@@ -250,14 +250,23 @@
   box-shadow: var(--sombra-lg);
 }
 
-/* Encabezado con ícono (reemplaza la captura por confidencialidad) */
+/* Encabezado con imagen/ícono representativo del proyecto */
 .proyecto-card__icono {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 120px;
-  font-size: 3.5rem;
+  height: 160px;
+  padding: var(--espaciado-sm);
+  overflow: hidden;
   background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+}
+
+/* contain: muestra el ícono completo y centrado, sin recortes ni deformación */
+.proyecto-card__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .proyecto-card__cuerpo {
